@@ -11,6 +11,10 @@
   },
   "tauri": {
     "macOSPrivateApi": true,
+    "systemTray": {
+      "iconPath": "icons/toolbox.png",
+      "iconAsTemplate": true
+    },
     "allowlist": {
       "all": true,
       "shell": {
@@ -21,11 +25,17 @@
       },
       "http": {
         "request": true,
-        "scope": ["https://**", "http://**"]
+        "scope": [
+          "https://**",
+          "http://**"
+        ]
       },
       "fs": {
         "all": true,
-        "scope": ["$APPCONFIG/**", "$DOWNLOAD/**"]
+        "scope": [
+          "$APPCONFIG/**",
+          "$DOWNLOAD/**"
+        ]
       }
     },
     "bundle": {
@@ -74,14 +84,16 @@
         "fullscreen": false,
         "resizable": true,
         "maximized": false,
-        "title": "ChatGPT-Desktop",
+        "title": "主页",
         "decorations": false,
         "transparent": true,
         "center": true,
         "alwaysOnTop": true,
         "visible": false,
-        "minWidth": 800,
-        "minHeight": 200
+        "minWidth": 300,
+        "width":300,
+        "minHeight": 100,
+        "height":100
       }
     ]
   }
