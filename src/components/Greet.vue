@@ -13,6 +13,9 @@ async function greet() {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
   greetMsg.value = await invoke('greet', { name: name.value })
 }
+const open = async () => {
+  await invoke('opengug',{name:`https://www.baidu.com/s?ie=UTF-8&wd=${name.value}`})
+}
 
 const windowFocused = ref(true)
 register('Ctrl+.', () => {
@@ -58,9 +61,9 @@ const fetchApi = async (url) => {
   //       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
   //   }
   // })
-  console.log(url,'url')
+  console.log(url, 'url')
   const data = await fetch(url)
-  console.log(data,'data')
+  console.log(data, 'data')
   const { error } = data
 
   if (error) throw new Error(error.message)
@@ -80,16 +83,22 @@ const hideWindow = async () => {
   }
 }
 const handleEnter = (v) => {
-  console.log(v.target.value, 'sakdaskdka')
-  fetchApi(`https://www.baidu.com/s?wd=${v.target.value}`).then((res) => {
-    console.log(res, 'res')
-  })
+  const a = document.createElement('a')
+  a.href = 'https://www.baidu.com/s?ie=UTF-8&wd=sa'
+  a.target = '_blank'
+  a.click()
+  console.log('按钮被点击了')
+  // console.log(v.target.value, 'sakdaskdka')
+  // fetchApi(`https://www.baidu.com/s?wd=${v.target.value}`).then((res) => {
+  //   console.log(res, 'res')
+  // })
 }
 </script>
 
 <template>
   <div class="container">
     <form class="row" @submit.prevent="greet">
+    <a-button @click="open">打开</a-button>
       <a-input id="greet-input" v-model="name" autofocus @press-enter="handleEnter" placeholder="Enter a name..." />
     </form>
   </div>

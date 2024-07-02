@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AButton: typeof import('@arco-design/web-vue')['Button']
     AInput: typeof import('@arco-design/web-vue')['Input']
     Greet: typeof import('./src/components/Greet.vue')['default']
   }
