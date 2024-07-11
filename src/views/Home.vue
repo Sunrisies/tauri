@@ -121,6 +121,9 @@ const openAbout = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid red;
+  height:100%;
+  width:100%;
 }
 input {
   padding: 10px;

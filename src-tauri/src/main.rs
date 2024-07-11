@@ -1,14 +1,10 @@
 use open::that;
-// Prevents additional console window on Windows in release, DO NOT REMOVE!!
 // #[cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-use tauri::{
-    CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
-  };
 
-#[cfg_attr(
-    all(not(debug_assertions), target_os = "windows"),
-    windows_subsystem = "windows"
-)]
+// #[cfg_attr(
+//     all(not(debug_assertions), target_os = "windows"),
+//     windows_subsystem = "windows"
+// )]
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -37,11 +33,11 @@ fn main() {
 async fn open_about(handle:tauri::AppHandle){
     tauri::WindowBuilder::new(
         &handle,
-        "search",
-        tauri::WindowUrl::App("/search".into())
+        "about",
+        tauri::WindowUrl::App("/about".into())
         // tauri::WindowUrl::App("/search".into().unwrap()),
     )
-    .title("search")
+    .title("about")
     .inner_size(400.0, 300.0).center()
     .build()
     .unwrap();

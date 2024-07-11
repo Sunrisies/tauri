@@ -6,13 +6,17 @@ import Greet from "./components/Greet.vue";
 
 <template>
   <div class="container">
-    <Greet />
+     <router-view></router-view>
   </div>
 </template>
 
 <style scoped>
+
 body{
-  /* background-color: white; */
+  /* box-sizing: border-box;
+  height: 100%;
+  width:100px; */
+  background-color: white;
   background-color: red;
 }
 

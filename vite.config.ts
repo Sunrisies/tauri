@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite';
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
+import * as path from 'path'
+
 export default defineConfig(async () => ({
   plugins: [vue(),
     AutoImport({
@@ -16,6 +18,12 @@ export default defineConfig(async () => ({
       ]
     })
   ],
+  // 配置路径别名
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
   clearScreen: false,
   server: {
     port: 1420,
