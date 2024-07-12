@@ -114,6 +114,7 @@ const openAbout = () => {
     </div>
     <p class="version">版本号v0.0.1</p>
   </div>
+ 
 </template>
 <style>
 .container {

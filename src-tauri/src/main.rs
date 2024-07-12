@@ -1,4 +1,4 @@
-use open::that;
+// use open::that;
 // #[cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // #[cfg_attr(
@@ -11,20 +11,20 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
-#[tauri::command]
-fn opengug(name: &str) -> String {
-    that(name).expect("Failed to open browser");
-    format!("Hello, {}! You've been greeted from Rust!", name)
+// #[tauri::command]
+// fn opengug(name: &str) -> String {
+//     that(name).expect("Failed to open browser");
+//     format!("Hello, {}! You've been greeted from Rust!", name)
 
-    // that("https://cn.vitejs.dev/").expect("Failed to open browser");
-}
+//     // that("https://cn.vitejs.dev/").expect("Failed to open browser");
+// }
 
 
 mod tray;
 fn main() {
     let context = tauri::generate_context!();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, opengug,open_about])
+        .invoke_handler(tauri::generate_handler![greet,open_about])
         .system_tray(tray::menu()) //✅ 将 `tauri.conf.json` 上配置的图标添加到系统托盘
         .on_system_tray_event(|app, event| tray::handler(app, event)) // ✅ 注册系统托盘事件处理程序
         .run(context)
