@@ -1,5 +1,14 @@
- html{
+html {
   height: 100%;
-  width: 99%;
-  background-color:black ;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  /* overflow: hidden; */
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  baclground-color: blue;
 }

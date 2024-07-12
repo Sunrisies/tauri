@@ -107,30 +107,31 @@ const openAbout = () => {
 
 <template>
   <div class="container">
-    <form class="row" @submit.prevent="greet">
-      <div class="input-group">
-        <a-input id="greet-input" v-model="name" autofocus @press-enter="handleEnter" placeholder="Enter a name..." />
+    <div class="input-group">
+      <el-input v-model="name" class="input" size="large" autofocus @press-enter="handleEnter" placeholder="Enter a name..." />
 
-        <a-button @click="openAbout" type="primary">Greet</a-button>
-      </div>
-    </form>
+      <el-button @click="openAbout" type="primary">Greet</el-button>
+    </div>
+    <p class="version">版本号v0.0.1</p>
   </div>
 </template>
 <style>
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
   border: 1px solid red;
-  height:100%;
-  width:100%;
-}
-input {
-  padding: 10px;
-  width: 700px;
-  border-radius: 5px;
+  height: 100%;
+  width: 100%;
 }
 .input-group {
   display: flex;
+
+}
+.input{
+  width: 600px;
+}
+.version {
+  color: red;
 }
 </style>

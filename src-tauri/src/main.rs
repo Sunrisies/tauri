@@ -19,6 +19,7 @@ fn opengug(name: &str) -> String {
     // that("https://cn.vitejs.dev/").expect("Failed to open browser");
 }
 
+
 mod tray;
 fn main() {
     let context = tauri::generate_context!();
@@ -38,6 +39,7 @@ async fn open_about(handle:tauri::AppHandle){
         // tauri::WindowUrl::App("/search".into().unwrap()),
     )
     .title("about")
+    .skip_taskbar(true)
     .inner_size(400.0, 300.0).center()
     .build()
     .unwrap();

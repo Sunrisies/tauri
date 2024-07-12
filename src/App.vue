@@ -12,13 +12,6 @@ import Greet from "./components/Greet.vue";
 
 <style scoped>
 
-body{
-  /* box-sizing: border-box;
-  height: 100%;
-  width:100px; */
-  background-color: white;
-  background-color: red;
-}
 
 </style>
 <!-- // {
